@@ -1,0 +1,42 @@
+@import url("./assets/fonts.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+  user-select: none;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
+  border-radius: 9999px;
+  border: 0.25rem solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(66 66 66 / 0.815);
+  border-radius: 9999px;
+  border: 0.25rem solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track {
+  @apply mx-1;
+}
+
+:focus {
+  outline: 1px solid white;
+}
+
+body {
+  background-color: #171717;
+}
