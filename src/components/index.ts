@@ -1,4 +1,4 @@
-import CookieGrabber from "./CookieGrabber";
+import CookieGrabber from "../hooks/useCookieData.ts";
 
 export {
 	CookieGrabber
