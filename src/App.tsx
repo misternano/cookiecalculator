@@ -122,9 +122,12 @@ const App = () => {
 						</label>
 					</div>
 				</form>
-				<div className="flex flex-row gap-5 justify-between">
-					<p>Coins from Purchase:</p>
-					<span>{coinFormat(Math.floor((selectedBundle * purchasable12Pack) * cookiePrice))}</span>
+				<div className="flex flex-col gap-5">
+					<div className="flex flex-row gap-5 justify-between">
+						<p>Rough Estimate:</p>
+						<span>{coinFormat(Math.floor((selectedBundle * purchasable12Pack) * cookiePrice))}</span>
+					</div>
+					<span className="text-xs text-neutral-400">this tool becomes inaccurate when over ~$100-$200</span>
 				</div>
 			</div>
 		</>
