@@ -14,8 +14,6 @@ const App = () => {
 	const [gemCount, setGemCount] = useState<number>(0);
 	const [usingSac, SetUsingSac] = useState<boolean>(false);
 
-	const bundlesPurchasable = Math.floor(budget / gemBundle);
-
 	const handleBudgetChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setBudget(isNaN(parseFloat(event.target.value)) ? 0 : parseFloat(event.target.value));
 	};
@@ -23,19 +21,34 @@ const App = () => {
 	const handlePackageChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setGemBundle(parseFloat(event.target.value));
 		switch (event.target.value) {
-			case "4.74" || "4.99":
+			case "4.74":
 				setGemCount(675);
 				break;
-			case "9.49" || "9.99":
+			case "4.99":
+				setGemCount(675);
+				break;
+			case "9.49":
 				setGemCount(1350);
 				break;
-			case "23.74" || "24.99":
+			case "9.99":
+				setGemCount(1350);
+				break;
+			case "23.74":
 				setGemCount(3375);
 				break;
-			case "47.49" || "49.99":
+			case "24.99":
+				setGemCount(3375);
+				break;
+			case "47.49":
 				setGemCount(6750);
 				break;
-			case "94.99" || "99.99":
+			case "49.99":
+				setGemCount(6750);
+				break;
+			case "94.99":
+				setGemCount(13500);
+				break;
+			case "99.99":
 				setGemCount(13500);
 				break;
 			default:
@@ -49,8 +62,9 @@ const App = () => {
 	};
 
 	const cookiePrice: number = data?.products.BOOSTER_COOKIE.quick_status.sellPrice ?? 0;
-	const selectedBundle: number = Math.floor(bundlesPurchasable * gemCount) ?? 0;
-	const purchasable12Pack: number = Math.abs((bundlesPurchasable * gemCount) / 3900) ?? 0;
+	const storeBundlesPurchasable = Math.floor(budget / gemBundle);
+	const selectedBundle: number = Math.floor(storeBundlesPurchasable * gemCount) ?? 0;
+	const purchasable12Pack: number = Math.abs((storeBundlesPurchasable * gemCount) / 3900) ?? 0;
 
 	return (
 		<>
