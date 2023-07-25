@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { Zap } from "lucide-react";
 import { useDataFetch } from "./hooks";
+import logo from "./assets/images/cookie.png";
 
 const coinFormat = (value: number): string => {
 	const formattedValue = value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -68,12 +69,22 @@ const App = () => {
 
 	return (
 		<>
-			<div className="absolute top-2 right-2">
-				<a href="https://nanos.club" target="norel noopen" className="p-3 flex bg-neutral-800 border border-neutral-700 rounded-full">
-					<Zap size="16" className="stroke-yellow-500" />
-				</a>
+			<div className="p-4 grid grid-cols-2 md:grid-cols-3">
+				<div className="hidden md:block" />
+				<div className="order-1 md:order-2 flex flex-row gap-2 items-center justify-self-center">
+					<img className="w-10 h-10" src={logo} alt="Logo: Minecraft Cookie" />
+					<h1 className="text-xl">Cookie Calculator</h1>
+				</div>
+				<div className="order-2 md:order-3 group flex flex-row items-center justify-self-end">
+					<div className="group-hover:block hidden p-2 pl-4 pr-12 -mr-10 bg-neutral-900 border border-neutral-700 rounded-full">
+						<p className="text-xs text-neutral-400 font-medium">nanos.club</p>
+					</div>
+					<a href="https://nanos.club" target="norel noopen" className="p-3 flex bg-neutral-800 border border-neutral-700 rounded-full">
+						<Zap size="16" className="stroke-yellow-500" />
+					</a>
+				</div>
 			</div>
-			<div className="grid place-items-center mt-[30dvh]">
+			<div className="w-[90%] mx-auto grid place-items-center mt-[30dvh]">
 				<form className="p-4 mb-5 flex flex-col gap-5 bg-neutral-800 rounded-xl">
 					<div className="flex flex-row gap-5 justify-between">
 						<input id="budget" name="budget" type="number" placeholder="Budget" className="flex-grow p-2 bg-neutral-700/50 rounded-md focus:rounded-md" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
