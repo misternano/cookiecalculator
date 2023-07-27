@@ -19,7 +19,7 @@ const App = () => {
 		setBudget(isNaN(parseFloat(event.target.value)) ? 0 : parseFloat(event.target.value));
 	};
 
-	const handlePackageChange = (event: ChangeEvent<HTMLInputElement>) => {
+	const handlePackageChange = (event: ChangeEvent<HTMLSelectElement>) => {
 		setGemBundle(parseFloat(event.target.value));
 		switch (event.target.value) {
 			case "4.74":
@@ -86,73 +86,46 @@ const App = () => {
 			</div>
 			<div className="w-[90%] mx-auto grid place-items-center mt-[30dvh]">
 				<form className="p-4 mb-5 flex flex-col gap-5 bg-neutral-800 rounded-xl">
-					<div className="flex flex-row gap-5 justify-between">
-						<input id="budget" name="budget" type="number" placeholder="Budget" className="flex-grow p-2 bg-neutral-700/50 rounded-md focus:rounded-md" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
-						<label className="flex flex-row gap-1 items-center">
+					<div className="flex flex-row gap-2 items-center">
+						<input id="budget" name="budget" type="number" step="5" placeholder="My Budget" className="flex-grow p-2 bg-neutral-700/50 rounded-md focus:rounded-md" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
+						<div className="bg-neutral-700/50 p-2 rounded-md">
+							<span className="text-neutral-400">USD</span>
+						</div>
+					</div>
+					<div className="flex flex-row gap-5">
+						<label className="flex flex-row gap-2 items-center">
 							<input id="sac" name="sac" type="checkbox" checked={usingSac} onChange={handleSacChange} />
 							<span>Support a Creator?</span>
 						</label>
-					</div>
-					<div className="flex flex-row gap-5">
-						<p>Package:</p>
-						<label className="flex flex-row gap-1">
-							<input
-								type="radio"
-								name="radial"
-								value={usingSac ? 4.74 : 4.99}
-								checked={usingSac ? gemBundle === 4.74 : gemBundle === 4.99}
-								onChange={handlePackageChange}
-							/>
-							<span>{usingSac ? "$4.74" : "$4.99"}</span>
-						</label>
-						<label className="flex flex-row gap-1">
-							<input
-								type="radio"
-								name="radial"
-								value={usingSac ? 9.49 : 9.99}
-								checked={usingSac ? gemBundle === 9.49 : gemBundle === 9.99}
-								onChange={handlePackageChange}
-							/>
-							<span>{usingSac ? "$9.49" : "$9.99"}</span>
-						</label>
-						<label className="flex flex-row gap-1">
-							<input
-								type="radio"
-								name="radial"
-								value={usingSac ? 23.74 : 24.99}
-								checked={usingSac ? gemBundle === 23.74 : gemBundle === 24.99}
-								onChange={handlePackageChange}
-							/>
-							<span>{usingSac ? "$23.74" : "$24.99"}</span>
-						</label>
-						<label className="flex flex-row gap-1">
-							<input
-								type="radio"
-								name="radial"
-								value={usingSac ? 47.49 : 49.99}
-								checked={usingSac ? gemBundle === 47.49 : gemBundle === 49.99}
-								onChange={handlePackageChange}
-							/>
-							<span>{usingSac ? "$47.49" : "$49.99"}</span>
-						</label>
-						<label className="flex flex-row gap-1">
-							<input
-								type="radio"
-								name="radial"
-								value={usingSac ? 94.99 : 99.99}
-								checked={usingSac ? gemBundle === 94.99 : gemBundle === 99.99}
-								onChange={handlePackageChange}
-							/>
-							<span>{usingSac ? "$94.99" : "$99.99"}</span>
-						</label>
+						<div className="bg-neutral-700 w-0.5 rounded-full" />
+						<div className="flex flex-col md:flex-row md:gap-2 items-center">
+							<p>Package:</p>
+							<select value={usingSac ? gemBundle : ""} onChange={handlePackageChange}>
+								<option value={usingSac ? 4.74 : 4.99}>
+									{usingSac ? "$4.74" : "$4.99"}
+								</option>
+								<option value={usingSac ? 9.49 : 9.99}>
+									{usingSac ? "$9.49" : "$9.99"}
+								</option>
+								<option value={usingSac ? 23.74 : 24.99}>
+									{usingSac ? "$23.74" : "$24.99"}
+								</option>
+								<option value={usingSac ? 47.49 : 49.99}>
+									{usingSac ? "$47.49" : "$49.99"}
+								</option>
+								<option value={usingSac ? 94.99 : 99.99}>
+									{usingSac ? "$94.99" : "$99.99"}
+								</option>
+							</select>
+						</div>
 					</div>
 				</form>
 				<div className="flex flex-col gap-5">
-					<div className="flex flex-row gap-5 justify-between">
+					<div className="flex flex-col md:flex-row gap-2 justify-between items-center bg-neutral-800 rounded-xl p-4">
 						<p>Rough Estimate:</p>
 						<span>{coinFormat(Math.floor((selectedBundle * purchasable12Pack) * cookiePrice))}</span>
 					</div>
-					<span className="text-xs text-neutral-400">this tool becomes inaccurate when over ~$100-$200</span>
+					<span className="text-xs text-center text-neutral-400">this tool becomes inaccurate when over ~$100-$200</span>
 				</div>
 			</div>
 		</>

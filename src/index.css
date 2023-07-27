@@ -11,6 +11,10 @@
   color: #fff;
 }
 
+select {
+  @apply text-neutral-800 rounded-md px-2;
+}
+
 ::-webkit-scrollbar {
   width: 1rem;
 }
