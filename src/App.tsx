@@ -69,10 +69,10 @@ const App = () => {
 			<main className="w-[90%] mx-auto grid place-items-center mt-[25dvh]">
 				<form className="min-w-[25rem] p-2 flex flex-col bg-neutral-800 border border-neutral-700 rounded-xl">
 					<div className="flex flex-row items-center rounded-md">
-						<input id="budget" name="budget" type="number" step="5" placeholder="My Budget" className="flex-grow p-2 bg-neutral-700/50 rounded-l-md focus:rounded-l-md" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
-						<div className="p-2 bg-neutral-700 rounded-r-md">
+						<input id="budget" name="budget" type="number" step="5" placeholder="My Budget" className="peer flex-grow p-2 bg-neutral-700/50 rounded-l-md focus:outline-0 border border-r-0 border-transparent focus:border-white" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
+						<label htmlFor="budget" className="p-2 bg-neutral-700 rounded-r-md border border-l-0 border-transparent peer-focus:border-white">
 							<span className="text-neutral-400">USD</span>
-						</div>
+						</label>
 					</div>
 					<div className="flex flex-row justify-center gap-5 mt-5">
 						<div className="flex flex-row gap-2 items-center">
@@ -102,7 +102,9 @@ const App = () => {
 					<div className="h-0.5 my-2 bg-neutral-700 rounded-full" />
 					<div className="flex flex-row justify-center gap-2">
 						<p>Roughly:</p>
-						<span className={estimateTotal > 1 ? "text-emerald-400" : "text-neutral-400"}>{coinFormat(estimateTotal)}</span>
+						<span className={estimateTotal > 1 ? "text-emerald-400" : "text-neutral-400"}>
+							{coinFormat(estimateTotal)}
+						</span>
 					</div>
 				</form>
 				<div className="mt-5 p-2 pr-3 flex flex-row gap-2 bg-red-500/10 border border-red-600 rounded-full">
