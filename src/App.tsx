@@ -69,7 +69,7 @@ const App = () => {
 			<main className="w-[90%] mx-auto grid place-items-center mt-[25dvh]">
 				<form className="min-w-[20rem] md:min-w-[25rem] p-2 flex flex-col bg-neutral-800 border border-neutral-700 rounded-xl">
 					<div className="flex flex-row items-center rounded-md">
-						<input id="budget" name="budget" type="number" step="5" placeholder="My Budget" className="peer flex-grow p-2 bg-neutral-700/50 rounded-l-md focus:outline-0 border border-r-0 border-transparent focus:border-white" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
+						<input id="budget" name="budget" type="number" step="5" placeholder="My Budget" className="peer flex-grow p-2 bg-neutral-700/50 rounded-md rounded-r-none focus:outline-0 border border-r-0 border-transparent focus:border-white" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
 						<label htmlFor="budget" className="p-2 bg-neutral-700 rounded-r-md border border-l-0 border-transparent peer-focus:border-white">
 							<span className="text-neutral-400">USD</span>
 						</label>
