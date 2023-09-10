@@ -46,9 +46,8 @@ const App = () => {
 	const cookiePrice: number = Math.floor(data?.products.BOOSTER_COOKIE.quick_status.sellPrice ?? 0);
 	const purchasableStoreBundles: number = Math.floor(budget / gemBundle) ?? 0;
 	const multiplyGemStore: number = Math.floor(purchasableStoreBundles * gemCount) ?? 0;
-	const purchasableDozenCookies: number = Math.floor(multiplyGemStore / 3900) ?? 0;
-	// 3900 in purchasableDozenCookies refers to the price of the dozen cookies pack in community center
-	const estimateTotal: number = Math.floor((12 * purchasableDozenCookies) * cookiePrice);
+	const purchasableCookies: number = Math.floor(multiplyGemStore / 325) ?? 0;
+	const estimateTotal: number = Math.floor(purchasableCookies * cookiePrice);
 
 	return (
 		<>
@@ -103,19 +102,13 @@ const App = () => {
 					<div className="h-0.5 my-2 bg-neutral-700 rounded-full" />
 					<div className="flex flex-row justify-center gap-2">
 						<p>Roughly:</p>
-						<span className={estimateTotal > 1 ? "text-emerald-400" : "text-white"}>{coinFormat(estimateTotal)}</span>
+						<span className={estimateTotal > 1 ? "text-emerald-400" : "text-neutral-400"}>{coinFormat(estimateTotal)}</span>
 					</div>
 				</form>
-				<div className="mt-5 p-2 px-3 flex flex-row gap-2 bg-red-500/10 border border-red-600 rounded-full">
+				<div className="mt-5 p-2 pr-3 flex flex-row gap-2 bg-red-500/10 border border-red-600 rounded-full">
 					<AlertCircle size="16" className="stroke-red-500" />
 					<p className="text-xs text-center text-red-500">
 						this tool may become inaccurate when using a budget over ~$100
-					</p>
-				</div>
-				<div className="mt-5 p-2 px-3 flex flex-row gap-2 bg-red-500/10 border border-red-600 rounded-full">
-					<AlertCircle size="16" className="stroke-red-500" />
-					<p className="text-xs text-center text-red-500">
-						packages other than $94.99 return inaccurate results. fixing in the next version!
 					</p>
 				</div>
 			</main>
