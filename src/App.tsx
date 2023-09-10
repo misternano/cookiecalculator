@@ -67,7 +67,7 @@ const App = () => {
 				</a>
 			</header>
 			<main className="w-[90%] mx-auto grid place-items-center mt-[25dvh]">
-				<form className="min-w-[25rem] p-2 flex flex-col bg-neutral-800 border border-neutral-700 rounded-xl">
+				<form className="min-w-[20rem] md:min-w-[25rem] p-2 flex flex-col bg-neutral-800 border border-neutral-700 rounded-xl">
 					<div className="flex flex-row items-center rounded-md">
 						<input id="budget" name="budget" type="number" step="5" placeholder="My Budget" className="peer flex-grow p-2 bg-neutral-700/50 rounded-l-md focus:outline-0 border border-r-0 border-transparent focus:border-white" value={budget === 0 ? "" : budget} onChange={handleBudgetChange} />
 						<label htmlFor="budget" className="p-2 bg-neutral-700 rounded-r-md border border-l-0 border-transparent peer-focus:border-white">
@@ -110,7 +110,7 @@ const App = () => {
 				<div className="mt-5 p-2 pr-3 flex flex-row gap-2 bg-red-500/10 border border-red-600 rounded-full">
 					<AlertCircle size="16" className="stroke-red-500" />
 					<p className="text-xs text-center text-red-500">
-						this tool may become inaccurate when using a budget over ~$100
+						may be inaccurate when using a budget over $100
 					</p>
 				</div>
 			</main>
