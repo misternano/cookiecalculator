@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { AlertCircle, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { useDataFetch } from "./hooks";
 import logo from "./assets/images/cookie.png";
 
