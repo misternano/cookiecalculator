@@ -107,12 +107,6 @@ const App = () => {
 						</span>
 					</div>
 				</form>
-				<div className="mt-5 p-2 pr-3 flex flex-row gap-2 bg-red-500/10 border border-red-600 rounded-full">
-					<AlertCircle size="16" className="stroke-red-500" />
-					<p className="text-xs text-center text-red-500">
-						may be inaccurate when using a budget over $100
-					</p>
-				</div>
 			</main>
 		</>
 	);
